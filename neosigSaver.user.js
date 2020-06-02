@@ -17,8 +17,9 @@ If you encounter any bugs please contact me at https://www.reddit.com/message/co
 
 // initialize values
 if(typeof GM_getValue("offset") === 'undefined') GM_setValue("offset", 0);
-var presets = JSON.parse(localStorage.getItem("presets"));
+var presets = JSON.parse(localStorage.getItem("presets")) || [];
 var offset = GM_getValue("offset");
+offset = offset > presets.length ? presets.length : offset;
 
 // inject HTML
 function main() {
